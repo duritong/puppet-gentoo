@@ -9,7 +9,7 @@ class gentoo {
 }
 
 class gentoo::package_use {
-    file { '/usr/portage/package.use':
+    file { '/etc/portage/package.use':
         owner => "root",
         group => "0",
         mode  => 644,
@@ -19,5 +19,30 @@ class gentoo::package_use {
             "puppet://$servername/gentoo/package_use/default"
         ]
     }
+}
 
+class gentoo::package_keywords {
+    file { '/etc/portage/package.keywords':
+        owner => "root",
+        group => "0",
+        mode  => 644,
+        ensure => present,
+        source => [
+            "puppet://$servername/gentoo/package_keywords/$fqdn",
+            "puppet://$servername/gentoo/package_keywords/default"
+        ]
+    }
+}
+
+class gentoo::package_mask {
+    file { '/etc/portage/package.mask':
+        owner => "root",
+        group => "0",
+        mode  => 644,
+        ensure => present,
+        source => [
+            "puppet://$servername/gentoo/package_mask/$fqdn",
+            "puppet://$servername/gentoo/package_mask/default"
+        ]
+    }
 }
