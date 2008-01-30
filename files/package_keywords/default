@@ -1,0 +1,6 @@
+app-admin/puppet ~x86
+dev-ruby/facter ~x86
+
+net-analyzer/munin ~x86
+sec-policy/selinux-munin ~x86
+
