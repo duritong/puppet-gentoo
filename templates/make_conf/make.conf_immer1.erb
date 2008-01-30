@@ -1,0 +1,26 @@
+# These settings were set by the catalyst build script that automatically built this stage
+# Please consult /etc/make.conf.example for a more detailed example
+
+CHOST="x86_64-pc-linux-gnu"
+CFLAGS="-march=nocona -O2 -pipe"
+CXXFLAGS="${CFLAGS}"
+MAKEOPTS="-j5"
+
+FEATURES="loadpolicy"
+
+USE="userlocales -multilib unicode nls pcre nptl nptlonly pam -ipv6 "
+
+LINGUAS="de de_CH fr fr_CH es es_ES es_MX en en_US"
+LANG="de_CH"
+
+CONFIG_PROTECT_MASK="/etc/wget /etc/dev.d /etc/env.d /etc/gpm /etc/hotplug.d /etc/mail /etc/skel /etc/terminfo /etc/udev "
+
+XEN_TARGET_ARCH="x86_64"
+
+PORTDIR_OVERLAY="/usr/local/portage"
+
+PORTAGE_ELOG_CLASSES="warn error log"
+PORTAGE_ELOG_SYSTEM="mail save"
+PORTAGE_ELOG_MAILURI="admin@immerda.ch mail.glei.ch"
+PORTAGE_ELOG_MAILFROM="root@<%= fqdn %>"
+

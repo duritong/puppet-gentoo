@@ -5,10 +5,6 @@
 # modules_dir { "gentoo": }
 
 class gentoo {
-
-}
-
-class gentoo::package_use {
     file { '/etc/portage/package.use':
         owner => "root",
         group => "0",
@@ -19,9 +15,7 @@ class gentoo::package_use {
             "puppet://$servername/gentoo/package_use/default"
         ]
     }
-}
 
-class gentoo::package_keywords {
     file { '/etc/portage/package.keywords':
         owner => "root",
         group => "0",
@@ -32,9 +26,7 @@ class gentoo::package_keywords {
             "puppet://$servername/gentoo/package_keywords/default"
         ]
     }
-}
 
-class gentoo::package_mask {
     file { '/etc/portage/package.mask':
         owner => "root",
         group => "0",
@@ -45,4 +37,33 @@ class gentoo::package_mask {
             "puppet://$servername/gentoo/package_mask/default"
         ]
     }
+}
+
+define gentoo::installselinuxpackage (
+    $portagelocation = ''
+) {
+
+    $real_portagelocation = $portagelocation ? {
+        ''      => 'sec-policy',
+        default =>  $portagelocation,
+    }
+
+    package { "${name}":
+        ensure => present,
+        category => $operatingsystem ? {
+            gentoo => "${real_portagelocation}",
+            default => '',
+        },
+    }
+}
+
+define gentoo::deploymakeconf ($templatepath){
+    file {'host_makeconf':
+        path => '/etc/make.conf',
+        ensure => file,
+        owner => root,
+        group => 0,
+        mode => 600,
+        content => template("$templatepath"),
+   }
 }
