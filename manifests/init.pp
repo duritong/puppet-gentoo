@@ -67,3 +67,16 @@ define gentoo::deploymakeconf ($templatepath){
         content => template("$templatepath"),
    }
 }
+
+define gentoo::etcconfd ($package){
+    file { '/etc/conf.d/${package}':
+        owner => "root",
+        group => "0",
+        mode  => 644,
+        ensure => present,
+        source => [
+            "puppet://$servername/dist/gentoo/etc_conf.d/${package}_${fqdn}",
+            "puppet://$servername/dist/gentoo/etc_conf.d/${package}_default"
+        ]
+    }
+}
