@@ -69,7 +69,7 @@ define gentoo::deploymakeconf ($templatepath){
 }
 
 define gentoo::etcconfd (){
-    file { '/etc/conf.d/${name}':
+    file { "/etc/conf.d/${name}":
         owner => "root",
         group => "0",
         mode  => 644,
