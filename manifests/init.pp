@@ -11,8 +11,8 @@ class gentoo {
         mode  => 644,
         ensure => present,
         source => [
-            "puppet://$servername/gentoo/package_use/$fqdn",
-            "puppet://$servername/gentoo/package_use/default"
+            "puppet://$servername/dist/gentoo/package_use/$fqdn",
+            "puppet://$servername/dist/gentoo/package_use/default"
         ]
     }
 
@@ -22,8 +22,8 @@ class gentoo {
         mode  => 644,
         ensure => present,
         source => [
-            "puppet://$servername/gentoo/package_keywords/$fqdn",
-            "puppet://$servername/gentoo/package_keywords/default"
+            "puppet://$servername/dist/gentoo/package_keywords/$fqdn",
+            "puppet://$servername/dist/gentoo/package_keywords/default"
         ]
     }
 
@@ -33,8 +33,8 @@ class gentoo {
         mode  => 644,
         ensure => present,
         source => [
-            "puppet://$servername/gentoo/package_mask/$fqdn",
-            "puppet://$servername/gentoo/package_mask/default"
+            "puppet://$servername/dist/gentoo/package_mask/$fqdn",
+            "puppet://$servername/dist/gentoo/package_mask/default"
         ]
     }
 }
