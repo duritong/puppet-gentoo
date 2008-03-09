@@ -11,8 +11,8 @@ class gentoo {
         mode  => 644,
         ensure => present,
         source => [
-            "puppet://$servername/dist/gentoo/package_use/$fqdn",
-            "puppet://$servername/dist/gentoo/package_use/default"
+            "puppet://$server/dist/gentoo/package_use/$fqdn",
+            "puppet://$server/dist/gentoo/package_use/default"
         ]
     }
 
@@ -22,8 +22,8 @@ class gentoo {
         mode  => 644,
         ensure => present,
         source => [
-            "puppet://$servername/dist/gentoo/package_keywords/$fqdn",
-            "puppet://$servername/dist/gentoo/package_keywords/default"
+            "puppet://$server/dist/gentoo/package_keywords/$fqdn",
+            "puppet://$server/dist/gentoo/package_keywords/default"
         ]
     }
 
@@ -33,8 +33,8 @@ class gentoo {
         mode  => 644,
         ensure => present,
         source => [
-            "puppet://$servername/dist/gentoo/package_mask/$fqdn",
-            "puppet://$servername/dist/gentoo/package_mask/default"
+            "puppet://$server/dist/gentoo/package_mask/$fqdn",
+            "puppet://$server/dist/gentoo/package_mask/default"
         ]
     }
 }
@@ -75,8 +75,8 @@ define gentoo::etcconfd (){
         mode  => 644,
         ensure => present,
         source => [
-            "puppet://$servername/dist/gentoo/etc_conf.d/${name}_${fqdn}",
-            "puppet://$servername/dist/gentoo/etc_conf.d/${name}_default"
+            "puppet://$server/dist/gentoo/etc_conf.d/${name}_${fqdn}",
+            "puppet://$server/dist/gentoo/etc_conf.d/${name}_default"
         ]
     }
 }
