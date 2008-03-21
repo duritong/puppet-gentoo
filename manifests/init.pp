@@ -49,7 +49,7 @@ define gentoo::installselinuxpackage (
     }
 
     package { "${name}":
-        ensure => present,
+        ensure => installed,
         category => $operatingsystem ? {
             gentoo => "${real_portagelocation}",
             default => '',
@@ -60,7 +60,6 @@ define gentoo::installselinuxpackage (
 define gentoo::deploymakeconf ($templatepath){
     file {'host_makeconf':
         path => '/etc/make.conf',
-        ensure => file,
         owner => root,
         group => 0,
         mode => 600,
@@ -73,7 +72,6 @@ define gentoo::etcconfd (){
         owner => "root",
         group => "0",
         mode  => 644,
-        ensure => present,
         source => [
             "puppet://$server/dist/gentoo/etc_conf.d/${name}_${fqdn}",
             "puppet://$server/dist/gentoo/etc_conf.d/${name}_default"
