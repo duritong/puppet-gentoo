@@ -68,8 +68,8 @@ define gentoo::deploymakeconf ($templatepath){
 }
 
 define gentoo::etcconfd (
-    $require = undef,
-    $notify = undef
+    $require = '',
+    $notify = ''
 ){
     file { "/etc/conf.d/${name}":
         owner => "root",
