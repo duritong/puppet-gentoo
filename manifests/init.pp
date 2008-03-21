@@ -77,7 +77,8 @@ define gentoo::etcconfd (
         mode  => 644,
         source => [
             "puppet://$server/dist/gentoo/etc_conf.d/${name}_${fqdn}",
-            "puppet://$server/dist/gentoo/etc_conf.d/${name}_default"
+            "puppet://$server/dist/gentoo/etc_conf.d/${name}_default",
+            "puppet://$server/gentoo/etc_conf.d/${name}"
         ],
         require => $require,
         notify => $notify,
