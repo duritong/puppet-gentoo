@@ -67,7 +67,10 @@ define gentoo::deploymakeconf ($templatepath){
    }
 }
 
-define gentoo::etcconfd (){
+define gentoo::etcconfd (
+    $require = undef,
+    $notify = undef,
+){
     file { "/etc/conf.d/${name}":
         owner => "root",
         group => "0",
@@ -76,5 +79,7 @@ define gentoo::etcconfd (){
             "puppet://$server/dist/gentoo/etc_conf.d/${name}_${fqdn}",
             "puppet://$server/dist/gentoo/etc_conf.d/${name}_default"
         ]
+        require => $require,
+        notify => $notify,
     }
 }
