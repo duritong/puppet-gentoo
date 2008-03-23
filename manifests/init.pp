@@ -85,7 +85,7 @@ define gentoo::etcconfd (){
     }
     if $notify {
         File["/etc/conf.d/${name}"]{
-            require => $notify,
+            notify => $notify,
         }
     }
 }
