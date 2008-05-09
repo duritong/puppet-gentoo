@@ -39,24 +39,6 @@ class gentoo {
     }
 }
 
-define gentoo::installselinuxpackage (
-    $portagelocation = ''
-) {
-
-    $real_portagelocation = $portagelocation ? {
-        ''      => 'sec-policy',
-        default =>  $portagelocation,
-    }
-
-    package { "${name}":
-        ensure => installed,
-        category => $operatingsystem ? {
-            gentoo => "${real_portagelocation}",
-            default => '',
-        },
-    }
-}
-
 define gentoo::deploymakeconf ($templatepath){
     file {'host_makeconf':
         path => '/etc/make.conf',
