@@ -9,8 +9,8 @@ class gentoo {
         source => [
             "puppet://$server/files/gentoo/package_use/$fqdn",
             "puppet://$server/files/gentoo/package_use/default",
-            "puppet://$server/gentoo/package_use/$fqdn",
-            "puppet://$server/gentoo/package_use/default"
+            "puppet://$server/modules/gentoo/package_use/$fqdn",
+            "puppet://$server/modules/gentoo/package_use/default"
         ],
         owner => root, group => 0, mode  => 0644;
     }
@@ -19,8 +19,8 @@ class gentoo {
         source => [
             "puppet://$server/files/gentoo/package_keywords/$fqdn",
             "puppet://$server/files/gentoo/package_keywords/default",
-            "puppet://$server/gentoo/package_keywords/$fqdn",
-            "puppet://$server/gentoo/package_keywords/default"
+            "puppet://$server/modules/gentoo/package_keywords/$fqdn",
+            "puppet://$server/modules/gentoo/package_keywords/default"
         ],
         owner => root, group => 0, mode  => 0644;
     }
@@ -29,8 +29,8 @@ class gentoo {
         source => [
             "puppet://$server/files/gentoo/package_mask/$fqdn",
             "puppet://$server/files/gentoo/package_mask/default",
-            "puppet://$server/gentoo/package_mask/$fqdn",
-            "puppet://$server/gentoo/package_mask/default"
+            "puppet://$server/modules/gentoo/package_mask/$fqdn",
+            "puppet://$server/modules/gentoo/package_mask/default"
         ],
         owner => root, group => 0, mode  => 0644;
     }
@@ -48,7 +48,7 @@ define gentoo::etcconfd (){
         source => [
             "puppet://$server/files/gentoo/etc_conf.d/${name}_${fqdn}",
             "puppet://$server/files/gentoo/etc_conf.d/${name}_default",
-            "puppet://$server/gentoo/etc_conf.d/${name}"
+            "puppet://$server/modules/gentoo/etc_conf.d/${name}"
         ],
         owner => root, group => 0, mode  => 0644;
     }
