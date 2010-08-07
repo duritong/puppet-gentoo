@@ -1,9 +1,9 @@
 define gentoo::etcconfd (){
     file { "/etc/conf.d/${name}":
         source => [
-            "puppet://$server/modules/site-gentoo/etc_conf.d/${name}_${fqdn}",
-            "puppet://$server/modules/site-gentoo/etc_conf.d/${name}_default",
-            "puppet://$server/modules/gentoo/etc_conf.d/${name}"
+            "puppet:///modules/site-gentoo/etc_conf.d/${name}_${fqdn}",
+            "puppet:///modules/site-gentoo/etc_conf.d/${name}_default",
+            "puppet:///modules/gentoo/etc_conf.d/${name}"
         ],
         owner => root, group => 0, mode  => 0644;
     }
